@@ -31,7 +31,7 @@ function alertWin() {
 }
 
 
-function playRockPaperScissors() {
+function playRound() {
     let computerSelection = getComputerChoice()
     let playerSelection = getPlayerChoice()
     if (playerSelection === "rock") {
@@ -78,4 +78,12 @@ function playRockPaperScissors() {
     }
 }
 
-playRockPaperScissors()
+function game() {
+    console.log(playRound());
+    console.log(playRound());
+    console.log(playRound());
+    console.log(playRound());
+    console.log(playRound());
+}
+
+game()
