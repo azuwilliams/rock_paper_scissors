@@ -17,34 +17,49 @@ function getPlayerChoice() {
     return result
 }
 
-function alertDraw() {
-    alert("You and the computer chose the same weapon!")
-    alert("It's a Tie!") 
+function writeDraw() {
+    const listItem = document.createElement('li');
+    const listText = document.createElement('span');
+
+    listItem.appendChild(listText);
+    listText.textContent = `You chose ${playerSelection}, and so did the computer, it's a draw!`
+    list.appendChild(listItem);
 }
 
-function alertLose() {
-    alert("You Lose!") 
+function writeLose() {
+    console.log("EEE");
+
+    const listItem = document.createElement('li');
+    const listText = document.createElement('span');
+
+    listItem.appendChild(listText);
+    listText.textContent = `You chose ${playerSelection}, and the computer chose ${computerSelection}, you Lose!`
+    list.appendChild(listItem);
 }
 
-function alertWin() {
-    alert("You win!")
-}
+function writeWin() {
+    console.log("OOO");
 
+    const listItem = document.createElement('li');
+    const listText = document.createElement('span');
+
+    listItem.appendChild(listText);
+    listText.textContent = `You chose ${playerSelection}, you Win!`
+    list.appendChild(listItem);
+}
 
 function playRound() {
     let computerSelection = getComputerChoice()
-    let playerSelection = getPlayerChoice()
+    // let playerSelection = getPlayerChoice()
     if (playerSelection === "rock") {
         if (computerSelection === "rock") {
-            alertDraw();
+            writeDraw();
             return "Tie!";
         } else if (computerSelection === "paper") {
-            alert("Paper beats Rock!");
-            alertLose();
+            writeLose();
             return "You Lose!";
         } else {
-            alert("Rock beats Scissors!");
-            alertWin();
+            writeWin()
             return "You Win!";
         }
     } else if (playerSelection === "paper") {
@@ -53,7 +68,7 @@ function playRound() {
             alertWin();
             return "You Win!";
         } else if (computerSelection === "paper") {
-            alertDraw();
+            writeDraw();
             return "Tie!"
         } else {
             alert("Scissors beats Paper!");
@@ -70,20 +85,32 @@ function playRound() {
             alertWin();
             return "You Win!";
         } else {
-            alertDraw();
+            writeDraw();
             return "Tie!";
         }
     } else {
-        alert("Invalid input, check your spelling and try again!")
+        alert("Invalid input, try again!")
     }
 }
 
-function game() {
-    console.log(playRound());
-    console.log(playRound());
-    console.log(playRound());
-    console.log(playRound());
-    console.log(playRound());
-}
+const rock = document.getElementById('rock');
+const paper = document.getElementById('paper');
+const scissors = document.getElementById('scissors');
+const list = document.querySelector('#results')
 
-game()
+let playerSelection
+
+rock.addEventListener('click', () => {
+    playerSelection = 'rock';
+    playRound();
+});
+
+paper.addEventListener('click', () => {
+    playerSelection = 'paper';
+    playRound();
+});
+
+scissors.addEventListener('click', () => {
+    playerSelection = 'scissors';
+    playRound();
+});
