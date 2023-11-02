@@ -64,25 +64,21 @@ function playRound() {
         }
     } else if (playerSelection === "paper") {
         if (computerSelection === "rock") {
-            alert("Paper beats Rock!");
-            alertWin();
+            writeWin();
             return "You Win!";
         } else if (computerSelection === "paper") {
             writeDraw();
             return "Tie!"
         } else {
-            alert("Scissors beats Paper!");
-            alertLose();
+            writeLose();
             return "You Lose!"
         }
     } else if (playerSelection === "scissors") {
         if (computerSelection === "rock") {
-            alert("Rock beats Scissors!");
-            alertLose();
+            writeLose();
             return "You Lose!";
         } else if (computerSelection === "paper") {
-            alert("Scissors beats Paper!");
-            alertWin();
+            writeWin();
             return "You Win!";
         } else {
             writeDraw();
